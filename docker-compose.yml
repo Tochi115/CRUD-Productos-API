@@ -1,0 +1,13 @@
+# Opcional: levanta SQL Server en Docker si no lo tienes instalado.
+# Uso: docker compose up -d
+# Cadena de conexión para este contenedor (pégala en appsettings.json):
+#   Server=localhost,1433;Database=ProductosDB;User Id=sa;Password=Productos#2026;TrustServerCertificate=True;
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: productos-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Productos#2026"
+    ports:
+      - "1433:1433"
